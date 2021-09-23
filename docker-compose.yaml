@@ -1,0 +1,18 @@
+version: '3'
+services:
+  ms-sql-server:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "3XSsBjPkcnfR"
+      MSSQL_SA_PASSWORD: "3XSsBjPkcnfR"
+      MYSQL_USER: "sa"
+      MSSQL_PID: Express
+    ports:
+      - "1433:1433"
+    volumes:
+      - "./DbCreateScript.sql:/1.sql"
+  testproject-app:
+    build: .
+    ports: 
+      - "3000:80"
