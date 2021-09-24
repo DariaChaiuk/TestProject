@@ -10,7 +10,7 @@ To check api you can use urls:
 1) Example of url:
 To get user and device registration dynamics endpoint for specific month.
          GET {apiUrl}/api/registration/bymonth/year + date
-Example: GET {apiUrl}/api/registration/bymonth/202107
+Example: GET http:3000/api/registration/bymonth/202107
 Output: {Year: 2021, month: 7, registeredUsers: 32, registeredDevices: [{type: "laptop", value: "15"}, {type: "mobile phone", value: "8"}, {type: "tablet", value: "9"}]}
 Output if data is not available: status code 404.
 
@@ -18,13 +18,13 @@ Output if data is not available: status code 404.
 To get number of concurrent logins, total session time for the hour, and cumulative time for the hour.
          GET {apiUrl}/api/sessions/byhour?startTime&endTime
 
-Example: GET {apiUrl}/api/sessions/byhour?startTime=2021-06-30T01:00:00
+Example: GET http:3000/api/sessions/byhour?startTime=2021-06-30T01:00:00
 Output: it will return data available after startTime.
 
-Example: GET {apiUrl}/api/sessions/byhour?endTime=2021-06-30T03:00:00
+Example: GET http:3000/api/sessions/byhour?endTime=2021-06-30T03:00:00
 Output: it will return data available before endTime.
 
-Example: {apiUrl}/api/sessions/byhour?startTime=2021-06-30T01:00:00&endTime=2021-06-30T03:00:00
+Example: http:3000/api/sessions/byhour?startTime=2021-06-30T01:00:00&endTime=2021-06-30T03:00:00
 Output: it will return data available between startTime and endTime.
 
 Output if data is available: [{ date: “2021-06-30”, hour: 1, concurrentSessions: 5, totalTimeForHour: 500, qumulativeForHour: 2400}, { date: “2021-
@@ -42,3 +42,4 @@ Output if data is available: [{ userName: “John Doe”, device: “John’s La
 Output if data is not available: []
 
 Api key you can find in appsettings.json . 
+Port for server in docker container: 3000;
